@@ -17,14 +17,14 @@ const testGrades = "9.80/6.85/9.10/7.80/8.20";
 // Sa se calculeze media aritmetica a notelor.
 // HINT: Transforma string-ul intr-un array si apoi itereaza prin array.
 
+let sum = 0;
 let splitGrades = testGrades.split("/");
-console.log("Ex.2 ", splitGrades);
-
-let avg = 0;
-splitGrades.forEach((item) => {
-    avg += item / splitGrades.length;
+splitGrades.forEach((testGrade) => {
+    testGrade = Number(testGrade)
+    sum = sum + testGrade;
 })
-console.log("Ex.2 ", avg);
+const average = sum / testGrades.length;
+console.log("Ex.2 ", average);
 
 
 // 3. Se da urmatorul obiect:
@@ -36,21 +36,9 @@ const props = {
 }
 // 3.1. Extrage din obiect valorile urmatoarelor proprietati: name, price, currency.
 
-let nameToReturn = "name";
-props[nameToReturn];
-console.log("Ex.3.1 ", props[nameToReturn]);
-
-let priceToReturn = "price";
-props[priceToReturn];
-console.log("Ex.3.1 ", props[priceToReturn]);
-
-let currencyToReturn = "currency";
-props[currencyToReturn];
-console.log("Ex.3.1 ", props[currencyToReturn]);
-
-// 3.2. Folosind proprietatile extrase anterior, afiseaza un mesaj de forma: "Produsul NAME are pretul PRICE".
-
-console.log("Ex.3.2 ", `Produsul ${props[nameToReturn]} are pretul ${props[priceToReturn]}`);
+const { name, price, currency } = props;
+const message = `Produsul ${name} are pretul ${price} ${currency}.`
+console.log(message);
 
 // 4. Se da inca un obiect:
 const additionalProps = {
